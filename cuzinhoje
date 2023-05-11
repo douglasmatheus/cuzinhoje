@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                <style>html, body{height: 100%;}</style>
+                <script  src="https://www.polisoftware.com.br/polisoftware/resources/dhtmlxsuite/7.3.13/codebase/suite.min.js?v=3.3.0"></script>
+                <link rel="stylesheet" type="text/css" href="https://cdn.dhtmlx.com/suite/pro/edge/suite.css?a1683809163633"/>
+        </head>
+   
+        <body style="height: 100%; margin: 0;">
+                <!-- component container -->
+                <div id="form" style="background-color: red!important;"></div>
+
+                <!-- styles for custom buttons -->
+                <style>
+                    #form div {
+                        background-color: red!important;
+                        color: white!important;
+                    }
+                    .dhx_label, .dhx_input--textinput {
+                        color: white!important;
+                    }
+                </style>
+                <script>
+                        const form = new dhx.Form("form", {
+                            css: "dhx_widget--bordered",
+                            padding: 40,
+                            width: document.body.offsetWidth,
+                            height: document.body.offsetHeight - 50,
+                            rows: [
+                                {
+                                    type: "spacer",
+                                },
+                                {
+                                    align: "center",
+                                    cols: [
+                                        {
+                                            type: "spacer",
+                                        },
+                                        {
+                                            align: "center",
+                                            name: "text",
+                                            type: "text",
+                                            label: "CUZINHO HOJE??? 🤩",
+                                            labelPosition: "top",
+                                            value: "Pfvzinho 🙏🏽🙏🏽🙏🏽",
+                                        },
+                                        {
+                                            type: "spacer",
+                                        }
+                                    ]
+                                },
+                                {
+                                    type: "spacer",
+                                },
+                                {
+                                    align: "center",
+                                    cols: [
+                                        {
+                                            type: "spacer",
+                                        },
+                                        {
+                                            id: "buttonYes",
+                                            name: "buttonYes",
+                                            type: "button",
+                                            submit: false,
+                                            text: "Oh Yeah! 😍",
+                                            size: "medium",
+                                            view: "flat",
+                                            color: "primary"
+                                        },
+                                        {
+                                            type: "spacer",
+                                        },
+                                        {
+                                            id: "buttonNo",
+                                            name: "button2",
+                                            type: "button",
+                                            submit: true,
+                                            text: "Nããão!😭",
+                                            size: "medium",
+                                            view: "flat",
+                                            color: "primary"
+                                        },
+                                        {
+                                            type: "spacer",
+                                        }
+                                    ]
+                                },
+                                {
+                                    type: "spacer",
+                                },
+                                {
+                                    type: "spacer",
+                                }
+                            ]
+                        });
+
+                        form.events.on('click', function (id) {
+                            if (id === 'buttonYes') {
+                                var url = "https://www.youtube.com/watch?v=orWnzqBA63w";
+                                window.open(url,'_blank');
+                            }
+                        });
+
+                        dhx.awaitRedraw().then(function () {
+                            const button1 = document.getElementById('buttonYes');
+                            const button2 = document.getElementById('buttonNo');
+
+                            button2.addEventListener('mouseover', function () {
+                                const { width, height } = getPositions();
+                                button2.style.position = 'fixed';
+                                button2.style.left = width;
+                                button2.style.top = height;
+                                button2.style.zIndex = 100;
+                            }, false);
+                        });
+
+                        function getPositions() {
+                            var doc = document,
+                                body = doc.getElementsByTagName('body')[0],
+                                x = body.offsetWidth - 87,
+                                y = body.offsetHeight - 32;
+
+                            return {
+                                width: Math.round(Math.random() * x) + 'px',
+                                height: Math.round(Math.random() * y) + 'px'
+                            };
+                        }
+                </script>
+    </body>
+</html>
